@@ -48,8 +48,8 @@ def clean_date_columns(tracks_df):
 # Usage
 if __name__ == "__main__":
    # Input and Output folder locations
-   metadata_folder = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/metadata/"
-   output_folder = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/"
+   metadata_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/metadata/"
+   output_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/"
 
    # Load the data
    tracks_df = pd.read_csv(os.path.join(metadata_folder, "tracks.csv"), header=[0, 1], low_memory=False)

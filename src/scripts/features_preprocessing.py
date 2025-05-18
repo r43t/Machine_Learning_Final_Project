@@ -1,48 +1,3 @@
-"""
-import numpy as np
-import pandas as pd
-import scipy
-import matplotlib.pyplot as plt, seaborn as sns
-import IPython.display as ipd
-import os
-
-def rename_fma_features(features):
-    df_features_name = features.iloc[:2,1:]
-    new_feature_name = ['track_id']
-    for i in range(len(df_features_name.columns)):
-        feat = df_features_name.iloc[:,i]
-        feat_name = feat.name.split('.')[0]
-        stat = feat[0]
-        num = feat[1]
-        name = feat_name+'_'+num+'_'+stat
-        new_feature_name.append(name)
-    return_df = features.iloc[3:,:].reset_index(drop=True)
-    return_df.columns = new_feature_name
-    return return_df
-
-# Usage
-raw_features = pd.read_csv('C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/metadata/features.csv', low_memory=False)
-features = rename_fma_features(raw_features)
-features = features.apply(pd.to_numeric)
-# Print to check
-print(raw_features.head())
-
-# Define the path where the file will be saved
-output_path = 'C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/features_preprocessed.csv'
-# Ensure the folder exists before saving
-os.makedirs(os.path.dirname(output_path), exist_ok=True)
-# Save the processed dataframe to a .csv file
-features.to_csv(output_path, index=False)
-print(f"Preprocessed dataframe saved to {output_path}")
-
-track_id_list = features['track_id'].tolist()
-
-print(len(track_id_list))
-
-print(features.columns)
-
-print(features.head())
-"""
 import numpy as np
 import pandas as pd
 import scipy
@@ -106,7 +61,7 @@ features = features.apply(pd.to_numeric)
 features_grouped = group_features_by_statistic(features, name_map)
 
 # Save processed DataFrame
-output_path = 'C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/features_preprocessed.csv'
+output_path = 'C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/features_preprocessed.csv'
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 features_grouped.to_csv(output_path, index=False)
 

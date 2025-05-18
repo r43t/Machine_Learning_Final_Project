@@ -2,8 +2,8 @@ import pandas as pd
 import os
 
 # Input and Output folder locations
-metadata_folder = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/metadata/"
-processed_folder = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/"
+metadata_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/metadata/"
+processed_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/"
 
 # Load the data
 tracks_df = pd.read_csv(os.path.join(processed_folder, "tracks_preprocessed.csv"), header=[0, 1], low_memory=False)

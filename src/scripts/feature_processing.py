@@ -1,62 +1,3 @@
-"""
-import pandas as pd
-import numpy as np
-from sklearn.model_selection import train_test_split
-from sklearn.preprocessing import StandardScaler
-from sklearn.feature_selection import SelectKBest, f_classif
-from sklearn.decomposition import PCA
-import matplotlib.pyplot as plt
-import os
-
-# Load combined data
-file_path = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/track_genre_feature.csv"
-df = pd.read_csv(file_path)
-
-# Separate features and labels
-y = df['primary_genre']
-X = df.drop(columns=['track_id', 'primary_genre', 'album date_created', 
-                     'album date_released', 'artist date_created', 
-                     'track date_created', 'track genres_all'])
-
-# Optional: Log transform skewed features (uncomment to use)
-# skewed_feats = X.skew().sort_values(ascending=False)
-# skewed_cols = skewed_feats[skewed_feats > 1.0].index
-# X[skewed_cols] = np.log1p(X[skewed_cols])
-
-# Standardize features
-scaler = StandardScaler()
-X_scaled = scaler.fit_transform(X)
-
-# Feature Selection: Keep top 50 features using ANOVA F-test
-k = min(50, X.shape[1])
-selector = SelectKBest(score_func=f_classif, k=k)
-X_selected = selector.fit_transform(X_scaled, y)
-
-# PCA: Retain 95% of variance
-pca = PCA(n_components=0.95, random_state=42)
-X_pca = pca.fit_transform(X_selected)
-
-# Train-test split
-X_train, X_test, y_train, y_test = train_test_split(
-    X_pca, y, test_size=0.3, stratify=y, random_state=42
-)
-
-# Print shapes and summary
-print(f"Original features: {X.shape}")
-print(f"After feature selection: {X_selected.shape}")
-print(f"After PCA: {X_pca.shape}")
-print(f"Train shape: {X_train.shape}, Test shape: {X_test.shape}")
-
-# Plot explained variance
-plt.figure(figsize=(8, 4))
-plt.plot(np.cumsum(pca.explained_variance_ratio_), marker='o')
-plt.xlabel('Number of Components')
-plt.ylabel('Cumulative Explained Variance')
-plt.title('PCA Explained Variance')
-plt.grid(True)
-plt.tight_layout()
-plt.show()
-"""
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
@@ -67,8 +8,8 @@ import matplotlib.pyplot as plt
 import os
 
 # Paths
-file_path = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/track_genre_feature.csv"
-output_path = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/final.csv"
+file_path = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/track_genre_feature.csv"
+output_path = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/final.csv"
 
 # Load combined data
 df = pd.read_csv(file_path)

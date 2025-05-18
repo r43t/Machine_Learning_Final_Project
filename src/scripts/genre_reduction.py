@@ -3,7 +3,7 @@ import ast
 import os
 
 # 1. Load the CSV
-processed_folder = "C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/processed/"
+processed_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/"
 genres_df = pd.read_csv(os.path.join(processed_folder, "tracks_with_genres.csv"), low_memory=False)
 
 # 2. Define the genre ID to name mapping
