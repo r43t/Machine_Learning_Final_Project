@@ -120,7 +120,7 @@ def suggest_track_number(predicted_labels, target_genres):
    if not matches:
       return "No tracks found for your selected mood/activity."
    selected = random.choice(matches)
-   return f"Suggested track number: track_{selected + 1}"
+   return f"Suggested track number: track_{selected}"
 
 # === Main program ===
 def main():
