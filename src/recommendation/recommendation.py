@@ -14,6 +14,9 @@ MODEL_DIR = os.path.abspath(MODEL_DIR)
 # Load Random Forest model
 rf_model = joblib.load(os.path.join(MODEL_DIR, "rf_model.pkl"))
 
+import xgboost
+print(xgboost.__version__)
+
 # Load XGBoost model
 xgb_model = joblib.load(os.path.join(MODEL_DIR, "xgboost_model.pkl"))
 

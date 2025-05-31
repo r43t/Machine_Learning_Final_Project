@@ -47,11 +47,13 @@ def group_features_by_statistic(df, name_map):
 
     return grouped_features
 
+
+# Paths
+base_dir = os.path.abspath(os.path.join(os.getcwd()))
+file_path = os.path.join(base_dir, "data", "metadata", "features.csv")
+output_path = os.path.join(base_dir, "data", "processed", "features_preprocessed.csv")
 # Load raw features
-raw_features = pd.read_csv(
-    'C:/Users/retae/GitHub/Machine-Learning-Final-Project/data/metadata/features.csv', 
-    low_memory=False
-)
+raw_features = pd.read_csv(file_path, low_memory=False)
 
 # Rename and parse features
 features, name_map = rename_fma_features(raw_features)
@@ -61,7 +63,6 @@ features = features.apply(pd.to_numeric)
 features_grouped = group_features_by_statistic(features, name_map)
 
 # Save processed DataFrame
-output_path = 'C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/features_preprocessed.csv'
 os.makedirs(os.path.dirname(output_path), exist_ok=True)
 features_grouped.to_csv(output_path, index=False)
 

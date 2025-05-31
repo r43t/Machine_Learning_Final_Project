@@ -2,8 +2,11 @@ import pandas as pd
 import ast
 import os
 
+# Paths
+base_dir = os.path.abspath(os.path.join(os.getcwd()))
+processed_folder = os.path.join(base_dir, "data", "processed")
+
 # 1. Load the CSV
-processed_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/"
 genres_df = pd.read_csv(os.path.join(processed_folder, "tracks_with_genres.csv"), low_memory=False)
 
 # 2. Define the genre ID to name mapping

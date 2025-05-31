@@ -1,7 +1,9 @@
 import pandas as pd
 import os
 
-processed_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/"
+# Paths and folders
+base_dir = os.path.abspath(os.path.join(os.getcwd()))
+processed_folder = os.path.join(base_dir, "data", "processed")
 
 # Load CSVs
 main_df = pd.read_csv(os.path.join(processed_folder, "tracks_with_primary_genres.csv"), low_memory=False)

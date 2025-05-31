@@ -26,9 +26,10 @@ def map_genre_ids_to_titles(genres_df):
 
 # Usage
 if __name__ == "__main__":
-    # Input and Output folder locations
-    metadata_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/metadata/"
-    processed_folder = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/"
+    # Paths and folders
+    base_dir = os.path.abspath(os.path.join(os.getcwd()))
+    metadata_folder = os.path.join(base_dir, "data", "metadata")
+    processed_folder = os.path.join(base_dir, "data", "processed")
 
     # Load the data (no multiindex issue anymore)
     genres_df = pd.read_csv(os.path.join(processed_folder, "genres.csv"), low_memory=False)

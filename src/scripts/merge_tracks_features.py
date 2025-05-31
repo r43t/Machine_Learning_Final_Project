@@ -1,8 +1,15 @@
 import pandas as pd
+import os
+
+# Paths
+base_dir = os.path.abspath(os.path.join(os.getcwd()))
+tracks_path = os.path.join(base_dir, "data", "processed", "tracks_preprocessed.csv")
+features_path = os.path.join(base_dir, "data", "processed", "features_preprocessed.csv")
+output_path = os.path.join(base_dir, "data", "processed", "merged_tracks_features.csv")
 
 # Load datasets
-tracks_df = pd.read_csv("C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/tracks_preprocessed.csv", low_memory=False)
-features_df = pd.read_csv("C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/features_preprocessed.csv", low_memory=False)
+tracks_df = pd.read_csv(tracks_path, low_memory=False)
+features_df = pd.read_csv(features_path, low_memory=False)
 
 # Ensure column names are stripped of spaces
 tracks_df.rename(columns=lambda x: x.strip(), inplace=True)
@@ -16,7 +23,6 @@ if 'track_id' in features_df.columns:
 merged_df = pd.concat([tracks_df, features_df], axis=1)
 
 # Save merged dataset
-output_path = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/merged_tracks_features.csv"
 merged_df.to_csv(output_path, index=False)
 
 print(f"Merged DataFrame saved successfully with {merged_df.shape[0]} rows and {merged_df.shape[1]} columns.")
