@@ -8,8 +8,9 @@ import matplotlib.pyplot as plt
 import os
 
 # Paths
-file_path = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/track_genre_feature.csv"
-output_path = "C:/Users/retae/GitHub/Machine_Learning_Final_Project/data/processed/final.csv"
+base_dir = os.path.abspath(os.path.join(os.getcwd()))
+file_path = os.path.join(base_dir, "data", "processed", "track_genre_feature.csv")
+output_path = os.path.join(base_dir, "data", "processed", "final.csv")
 
 # Load combined data
 df = pd.read_csv(file_path)
