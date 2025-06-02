@@ -1,5 +1,3 @@
 *.zip
 *.csv
-*.pkl
-/src/models/
-/zipfiles
+src/models/rf_model.pkl
