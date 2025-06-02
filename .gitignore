@@ -2,7 +2,4 @@
 *.csv
 *.pkl
 /src/models/
-/data/raw/
-/data/metadata/
 /zipfiles
-/data/processed/
