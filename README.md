@@ -2,6 +2,8 @@
 
 This repository contains the code and resources for a machine learning project that classifies music tracks by genre and provides a mood/activity-based music recommendation system. The project uses the Free Music Archive (FMA) small dataset and applies multiple ML models to classify tracks based on audio features.
 
+**Note: Dataset folders containing the tracks and CSV files are here because they are too large and thus require Git LFS for upload and commits. I did not want to pay for this subscription.**
+
 ## Project Overview
 
 The goal of this project is to classify music tracks into genres using audio feature extraction and machine learning, and then leverage the classification results to recommend songs based on user-selected moods or activities.
